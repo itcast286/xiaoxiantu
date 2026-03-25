@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "image": "https://picsum.photos/seed/pc1/400/400",
+        "title": "酷睿i7台式电脑主机 独显16G 游戏办公组装机",
+        "price": 3299,
+        "shop": "电脑数码旗舰店",
+        "sales": 5,
+        "shipping": "包邮"
+    },
+    {
+        "id": 2,
+        "image": "https://picsum.photos/seed/pc2/400/400",
+        "title": "i5 12400F电竞主机 RTX3060直播游戏电脑",
+        "price": 4599,
+        "shop": "电竞装机旗舰店",
+        "sales": 3,
+        "shipping": "包邮"
+    },
+    {
+        "id": 3,
+        "image": "https://picsum.photos/seed/pc3/400/400",
+        "title": "迷你办公小主机 四核16G+512G便携电脑",
+        "price": 1599,
+        "shop": "迷你电脑工厂店",
+        "sales": 8,
+        "shipping": "包邮"
+    },
+    {
+        "id": 4,
+        "image": "https://picsum.photos/seed/phone1/400/400",
+        "title": "新款5G智能手机 120Hz高刷屏 大电池",
+        "price": 2499,
+        "shop": "手机官方旗舰店",
+        "sales": 7,
+        "shipping": "包邮"
+    },
+    {
+        "id": 5,
+        "image": "https://picsum.photos/seed/phone2/400/400",
+        "title": "旗舰拍照手机 骁龙8 16G+1TB全网通",
+        "price": 5699,
+        "shop": "数码通讯旗舰店",
+        "sales": 2,
+        "shipping": "包邮"
+    },
+    {
+        "id": 6,
+        "image": "https://picsum.photos/seed/phone3/400/400",
+        "title": "千元学生手机 高清三摄大内存备用机",
+        "price": 1199,
+        "shop": "平价手机旗舰店",
+        "sales": 9,
+        "shipping": "包邮"
+    },
+    {
+        "id": 7,
+        "image": "https://picsum.photos/seed/camera1/400/400",
+        "title": "高清数码照相机 4K摄像 入门微单家用",
+        "price": 2899,
+        "shop": "摄影器材旗舰店",
+        "sales": 4,
+        "shipping": "包邮"
+    },
+    {
+        "id": 8,
+        "image": "https://picsum.photos/seed/camera2/400/400",
+        "title": "全画幅专业微单相机 防抖Vlog拍摄",
+        "price": 12999,
+        "shop": "高端相机旗舰店",
+        "sales": 6,
+        "shipping": "包邮"
+    },
+    {
+        "id": 9,
+        "image": "https://picsum.photos/seed/camera3/400/400",
+        "title": "便携卡片相机 迷你高清学生入门相机",
+        "price": 899,
+        "shop": "数码相机旗舰店",
+        "sales": 1,
+        "shipping": "包邮"
+    }
+]

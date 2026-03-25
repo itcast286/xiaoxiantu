@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/cart.css">
+</head>
+
+<body>
+
+    <header class="fix w">
+        <h2><a href="index.html" class="head">小仙兔</a>购物车</h2>
+    </header>
+    <div class="w">
+        <div class="goods_cart">
+
+            <div class="cart">
+                <div class="filterTabs--OKoZcbLD">
+                    <div class="defaultTab--bdwFJGjU active">
+                        <span class="tabIcon--RW77o1zV" style="background: no-repeat url('https://img.alicdn.com/imgextra/i3/O1CN01cSckuL1rZ0SuPp3CW_!!6000000005644-2-tps-48-48.png') 0 2px;  background-size: 24px 24px;
+         "></span>全部商品(56)
+                    </div>
+                    <div class="defaultTab--bdwFJGjU">
+                        <span class="tabIcon--RW77o1zV" style="background: no-repeat url('https://img.alicdn.com/imgextra/i4/O1CN01K54O2W1kDINaR0LwX_!!6000000004649-2-tps-48-48.png') 0 2px;  background-size: 24px 24px;
+             "></span>消费券
+                    </div>
+                    <div class="defaultTab--bdwFJGjU">
+                        <span class="tabIcon--RW77o1zV" style="background: no-repeat url('https://img.alicdn.com/imgextra/i3/O1CN01T5ZiCp28x8o4g7Fjp_!!6000000007998-2-tps-96-96.png') 0 2px;  background-size: 24px 24px;
+                                     "></span>官方立减
+                    </div>
+                    <div class="defaultTab--bdwFJGjU">
+                        <span class="tabIcon--RW77o1zV"
+                            style="background: no-repeat url('https://img.alicdn.com/imgextra/i1/O1CN01JMB2HG1lBkfGrHJ01_!!6000000004781-2-tps-96-96.png') 0 2px;  background-size: 24px 24px; "></span>
+                        超级立减
+                    </div>
+                    <div class="defaultTab--bdwFJGjU">
+                        <span class="tabIcon--RW77o1zV"
+                            style="background: no-repeat url('https://img.alicdn.com/imgextra/i4/O1CN01QEA5sq1NHCayKabd0_!!6000000001544-2-tps-48-48.png') 0 2px;  background-size: 24px 24px;"></span>
+                        降价
+                    </div>
+                </div>
+
+
+                <div class="cartOperation--JUDK2BYF">
+
+                    <div class="cartOperationLeft--JnN5kBCf">
+                        <label for="checkbox">
+                            <input type="checkbox" id="checkbox" name="checkbox">
+                            <span>全选</span>
+                        </label>
+                        <div class="trade-button">移入收藏</div>
+                        <div class="trade-button">删除</div>
+                    </div>
+                    <div class="cartOperationRight--OAUGCICa">
+                        <div class="ant-select">
+
+                        </div>
+                        <div class="ant-select">2</div>
+                        <div class="ant-select">3</div>
+                    </div>
+                </div>
+
+                <div class="list">
+               
+
+                </div>
+
+            </div>
+
+
+            <div class="total">
+                <h3>结算明细</h3>
+                <div class="total_bgm">
+                    <img src="https://img.alicdn.com/imgextra/i4/O1CN01CIC9vl1ISaHmqoYNZ_!!6000000000892-55-tps-140-140.svg"
+                        alt="">
+                    <div class="txtTipHighlight--esYI6A02">选择商品查看实际支付价格</div>
+                </div>
+
+                <div class="totalContainer--FdT_bRTQ">
+                    <h2>合计</h2>
+                    <span></span>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+    <script>
+        const tabs = document.querySelector('.filterTabs--OKoZcbLD');
+        tabs.addEventListener('mouseover', (e) => {
+            const target = e.target;
+            if (target.classList.contains('defaultTab--bdwFJGjU span')) {
+                tabs.querySelector('.active').classList.remove('active');
+                target.classList.add('active');
+            }
+        })
+
+
+        const goods = [
+            { id: 1, name: '小米手机MAX', spec: { color: '红色', size: 'M' }, price: 100.56, num: 1 },
+            { id: 2, name: '商品2', spec: { color: '绿色', size: 'L' }, price: 200.56, num: 2, gift: 'def,456' },
+            { id: 3, name: '商品3', spec: { color: '黄色', size: 'M' }, price: 300.56, num: 3 },
+            { id: 4, name: '商品4', spec: { color: '黄色', size: 'XXL' }, price: 400.56, num: 4 }
+        ];
+
+        const list = document.querySelector('.list');
+        const totalContainer = document.querySelector('.totalContainer--FdT_bRTQ span');
+        function renderGoodsList() {
+            document.querySelector('.list').innerHTML = goods.map(item => {
+                const { id, name, spec, price, num, gift } = item;
+                const specStr = Object.values(spec).join('/');
+                const totalPrice = price * num;
+                const giftStr = gift ? gift.split(',').map(item => `<span>[赠品]&nbsp;${item}</span><br>`).join('') : '';
+
+                return `
+                
+                
+                     <div class="table--JnN5kBCf">
+                        <div class="item"><input type="checkbox" name="checkbox" id="checkbox"></div>
+                        <div class="item"><img src="../images/b1.jpg" alt="" width="100%" height="100%"></div>
+                        <div class="item">
+                            <p class="name">${name}<br>${giftStr}</p>
+                        </div>
+                        <div class="item">
+                            <p class="spec"> ${specStr}</p>
+                        </div>
+                        <div class="item">
+                            <p class="price">￥${price.toFixed(2)}</p>
+                        </div>
+                        <div class="item">
+                            <button class="minus" data-id="${id}">-</button>
+                            <p class="num">${num}</p>
+                            <button class="add" data-id="${id}">+</button>
+                        </div>
+                        <div class="item">
+                            <p class="totals">￥${totalPrice.toFixed(2)}</p>
+                        </div>
+                    </div>
+                
+                `
+
+            }).join('');
+            const TotalPrice = goods.reduce((pre, cur) => pre + cur.price * cur.num, 0);
+            totalContainer.innerHTML = `￥${TotalPrice.toFixed(2)}`;
+        }
+
+    
+
+        function calcTotalPrice() {
+            const TotalPrice = goods.reduce((pre, cur) => pre + cur.price * cur.num, 0);
+            totalContainer.innerHTML = `￥${TotalPrice.toFixed(2)}`;
+        }
+
+        function changGoodsNum(id,type){
+            const targetGoods = goods.find(item=>item.id===id);
+            if(!targetGoods) return;
+
+            if(type==='add'){
+                targetGoods.num++;
+            }else if(type==='minus'){
+                if(targetGoods.num<=1) return;
+                targetGoods.num--;
+            }
+            renderGoodsList();
+            calcTotalPrice();
+        }
+
+        list.addEventListener('click',(e)=>{
+            const target = e.target;
+            if(target.classList.contains('add')){
+                const id = Number(target.dataset.id);
+                changGoodsNum(id,'add');
+            }else if(target.classList.contains('minus')){
+                const id = Number(target.dataset.id);
+                changGoodsNum(id,'minus');
+            }
+        })
+
+        renderGoodsList();
+        calcTotalPrice();
+
+        
+        
+    </script>
+</body>
+
+</html>

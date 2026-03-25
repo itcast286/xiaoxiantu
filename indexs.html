@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小仙兔(XXT.COM)-正品低价、品质保障</title>
+    <meta name="description" content="小仙兔XXT.COM-专业的综合网上购物商城">
+    <meta name="Keywords" content="小仙兔,网上购物,商城">
+    <style>
+        /* ========== 移动端全局重置 ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            background-color: #f5f5f5;
+            /* 底部导航留白 */
+            padding-bottom: 18.6667vw;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .style {
+            color: #e53e3e;
+        }
+
+        /* ========== 顶部快捷导航 ========== */
+        .shortcut {
+            height: 12vw;
+            background-color: #fff;
+            border-bottom: .2667vw solid #eee;
+        }
+        .shortcut_nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 4vw;
+        }
+        .fl, .fr ul {
+            display: flex;
+            gap: 2.6667vw;
+            font-size: 3.7333vw;
+        }
+
+        /* ========== 广告栏 ========== */
+        .pages {
+            display: flex;
+            align-items: center;
+            background-color: #ffeb3b;
+            padding: 2.6667vw 4vw;
+            font-size: 3.7333vw;
+        }
+        .pages_prev {
+            width: 6.6667vw;
+            height: 6.6667vw;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
+            border: none;
+            margin-right: 2.6667vw;
+        }
+
+        /* ========== 头部（Logo+搜索+购物车） ========== */
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 2.6667vw;
+            padding: 3.2vw 4vw;
+            background-color: #fff;
+        }
+        .logo1 h1 a {
+            font-size: 4.8vw;
+            color: #e53e3e;
+            font-weight: bold;
+        }
+        .search {
+            flex: 1;
+            position: relative;
+        }
+        .search input {
+            width: 100%;
+            height: 10.1333vw;
+            background-color: #f5f5f5;
+            border-radius: 5.0667vw;
+            border: none;
+            padding: 0 4vw;
+            outline: none;
+            font-size: 3.7333vw;
+        }
+        .shopcar {
+            width: 10.1333vw;
+            height: 10.1333vw;
+            position: relative;
+        }
+        .count {
+            position: absolute;
+            top: -1.3333vw;
+            right: -1.3333vw;
+            width: 4.8vw;
+            height: 4.8vw;
+            background-color: #e53e3e;
+            color: #fff;
+            font-size: 3.2vw;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 4.8vw;
+        }
+
+        /* ========== 热词导航 ========== */
+        .hotwords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.6667vw;
+            padding: 2.6667vw 4vw;
+            background-color: #fff;
+            font-size: 3.7333vw;
+        }
+
+        /* ========== 分类导航 ========== */
+        main nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.1333vw;
+            padding: 4vw;
+            background-color: #fff;
+            margin-top: 2.6667vw;
+        }
+        main nav ul li {
+            font-size: 3.4667vw;
+            padding: 1.3333vw 2.1333vw;
+            background-color: #f9f9f9;
+            border-radius: 1.0667vw;
+        }
+
+        /* ========== 轮播 ========== */
+        .focus {
+            height: 40vw;
+            background-color: #eee;
+            margin: 2.6667vw 4vw;
+            border-radius: 2.1333vw;
+            position: relative;
+        }
+
+        /* ========== 商品模块标题 ========== */
+        .mark {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4vw;
+            background-color: #fff;
+            margin-top: 2.6667vw;
+        }
+        .mark h3 {
+            font-size: 4.2667vw;
+        }
+        .desc {
+            font-size: 3.2vw;
+            color: #999;
+        }
+
+        /* ========== 商品列表（Grid 2列布局） ========== */
+        .black {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.6667vw;
+            padding: 4vw;
+            background-color: #fff;
+        }
+        .item {
+            background-color: #fff;
+            border-radius: 2.1333vw;
+            overflow: hidden;
+        }
+        .item h3 {
+            font-size: 3.4667vw;
+            margin: 2.1333vw 0;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            color: #333;
+        }
+        .item span {
+            font-size: 3.7333vw;
+            color: red;
+        }
+
+        /* ========== 底部服务 ========== */
+        .footer {
+            background-color: #fff;
+            padding: 5.3333vw 4vw;
+            margin-top: 2.6667vw;
+        }
+        .mod_service {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 4vw;
+        }
+        .mod_service .item {
+            text-align: center;
+        }
+        .npm {
+            text-align: center;
+            font-size: 3.2vw;
+            color: #999;
+            line-height: 5.3333vw;
+        }
+
+        /* ========== 底部固定导航 ========== */
+        .page {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 16vw;
+            background-color: #fff;
+            border-top: .2667vw solid #eee;
+            z-index: 999;
+        }
+        .wb {
+            display: flex;
+            height: 100%;
+        }
+        .wb li {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 3.2vw;
+            color: #333;
+        }
+        .wb li a {
+            color: #333;
+        }
+        .wb li .active {
+            color: #e53e3e;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 快捷导航 -->
+    <section class="shortcut">
+        <div class="shortcut_nav">
+            <div class="fl">小仙兔欢迎你！</div>
+            <div class="fr">
+                <ul>
+                    <li><a href="./uploads/login.html">请登录</a></li>
+                    <li><a href="./uploads/register.html" class="style">免费注册</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 广告 -->
+    <div class="pages">
+        <button class="pages_prev">×</button>
+        <div class="pages_n">小广告</div>
+    </div>
+
+    <!-- 头部 -->
+    <header class="header">
+        <div class="logo1">
+            <h1><a href="index.html">小仙兔</a></h1>
+        </div>
+        <div class="search">
+            <input type="search" placeholder="搜索品优购">
+        </div>
+        <div class="shopcar">
+            <a href="./uploads/cart.html"></a>
+            <i class="count">21</i>
+        </div>
+    </header>
+
+    <!-- 热词导航 -->
+    <div class="hotwords">
+        <a href="#" class="style">首页</a>
+        <a href="#">生鲜</a>
+        <a href="#">美食</a>
+        <a href="#">餐厨</a>
+        <a href="#">电器</a>
+        <a href="#">居家</a>
+    </div>
+
+    <!-- 主体内容 -->
+    <main>
+        <nav>
+            <ul>
+                <li><a href="#">家用电器</a></li>
+                <li><a href="#">电脑、手机、相机</a></li>
+                <li><a href="#">服装</a></li>
+                <li><a href="#">居家</a></li>
+                <li><a href="#">母婴</a></li>
+                <li><a href="#">美妆</a></li>
+            </ul>
+        </nav>
+
+        <div class="focus"></div>
+
+        <!-- 新鲜好物 -->
+        <div class="xtx_goods_new mark">
+            <h3>新鲜好物</h3>
+            <p class="desc">为您推荐新鲜好物</p>
+            <a href="#">查看全部</a>
+        </div>
+        <div class="black">
+            <div class="item">
+                <img src="./images/mk1.avif" alt="">
+                <h3>华为笔记本电脑16英寸商务办公轻薄本</h3>
+                <span>￥1699元</span>
+            </div>
+            <div class="item">
+                <img src="./images/x1.jpg" alt="">
+                <h3>供港壹号有机纯牛奶200ml*16盒</h3>
+                <span>￥48.00元</span>
+            </div>
+        </div>
+
+        <!-- 人气推荐 -->
+        <div class="xtx_goods_popular mark">
+            <h3>人气推荐</h3>
+            <p class="desc">为您推荐新鲜好物</p>
+        </div>
+        <div class="black">
+            <div class="item"><img src="./images/mk1.avif" alt=""><h3>华为笔记本电脑</h3><span>￥1699元</span></div>
+            <div class="item"><img src="./images/x1.jpg" alt=""><h3>供港壹号纯牛奶</h3><span>￥48元</span></div>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="mod_service">
+            <div class="item"><h4>正品保障</h4></div>
+            <div class="item"><h4>7天无理由退货</h4></div>
+            <div class="item"><h4>24小时客服</h4></div>
+            <div class="item"><h4>安全支付</h4></div>
+        </div>
+        <div class="npm">
+            <p>小仙兔 2020-2026 版权所有</p>
+        </div>
+    </footer>
+
+    <!-- 底部固定导航 -->
+    <nav class="page">
+        <ul class="wb">
+            <li><a href="#" class="active">新鲜<br>好物</a></li>
+            <li><a href="#">人气<br>推荐</a></li>
+            <li><a href="#">热门<br>品牌</a></li>
+            <li><a href="#">分类<br>商品</a></li>
+            <li><a href="#">顶部</a></li>
+        </ul>
+    </nav>
+
+    <script src="./js/index.js"></script>
+</body>
+</html>

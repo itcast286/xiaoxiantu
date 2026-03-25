@@ -1,0 +1,30 @@
+/* 字体声明 */
+@font-face {
+  font-family: "icomoon";
+  src: url("../fonts/icomoon.eot?yu2p7t");
+  src:
+    url("../fonts/icomoon.eot?yu2p7t#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon.ttf?yu2p7t") format("truetype"),
+    url("../fonts/icomoon.woff?yu2p7t") format("woff"),
+    url("../fonts/icomoon.svg?yu2p7t#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* < !-- 快捷导航模块 start--> */
+.shortcut_nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #f6f0f0;
+}
+.fr ul {
+    display: flex;
+    justify-content: space-between;
+    gap: .5333vw;
+
+}
+
+
+
+/* < !--快捷导航模块 end --> */

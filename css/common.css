@@ -1,0 +1,265 @@
+/* 公共样式 */
+.w {
+    width: 1200px;
+    margin: 0 auto;
+
+
+}
+
+/* 字体声明 */
+@font-face {
+    font-family: 'icomoon';
+    src: url('../fonts/icomoon.eot?yu2p7t');
+    src: url('../fonts/icomoon.eot?yu2p7t#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?yu2p7t') format('truetype'),
+        url('../fonts/icomoon.woff?yu2p7t') format('woff'),
+        url('../fonts/icomoon.svg?yu2p7t#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+/* < !-- 快捷导航模块 start--> */
+.shortcut {
+
+    height: 30px;
+    background-color: #f6f0f0;
+
+}
+
+.shortcut_nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 30px;
+}
+
+.shortcut_nav .fr ul li {
+    float: left;
+    margin-right: 5px;
+
+}
+
+.shortcut_nav .arrow-icon {
+
+    margin-right: 0;
+
+}
+
+.shortcut_nav .fr ul li a {
+    display: block;
+    width: 60px;
+    font-size: 12px;
+    line-height: 30px;
+    padding-top: 2px;
+
+
+
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.shortcut_nav .fr ul li:nth-child(2n) {
+    margin-top: 10px;
+    height: 12px;
+    border-right: 1px solid #333;
+}
+
+.arrow-icon a::before {
+    content: '\e959';
+    font-family: 'icomoon';
+    font-size: 10px;
+    color: #333;
+    padding-right: 6px;
+
+}
+
+.arrow-icon {
+    margin-left: 0;
+}
+
+/* < !--快捷导航模块 end --> */
+
+
+
+/* < !-- 头部模块 start --> */
+.header {
+    /* 头部模块居中 */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    background-color: #fff;
+}
+
+.hotwords a {
+    display: inline-block;
+    width: 60px;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+
+
+
+.logo1 {
+ 
+    width: 170px;
+    height: 60px;
+    line-height: 61px;
+    color: aliceblue;
+    
+    
+}
+
+.logo2 a {
+    position: absolute;
+    top: 20%;
+    left: 1px;
+    display: block;
+    width: 171px;
+    height: 61px;
+    background: url(../images/logo.jpg) no-repeat top center;
+    /* font-size: 0; */
+    background-size: 20% 50%;
+ 
+    
+    
+}
+
+
+
+.search {
+    margin-left: 12px;
+    width: 200px;
+    height: 30px;
+
+}
+
+.search input {
+    width: 200px;
+    height: 30px;
+    border: 1px solid #e4d9da;
+    padding-left: 20px;
+}
+
+.search input::placeholder {
+    font-size: 10px;
+    line-height: 30px;
+    color: #999;
+}
+
+.search input::after {
+    content: '\e986';
+    font-family: 'icomoon';
+    font-size: 10px;
+    line-height: 30px;
+    color: #999;
+}
+
+.search-btn {
+    display: none;
+    width: 200px;
+    height: 160px;
+    font-size: 10px;
+    /* text-align: center; */
+    /* line-height: 30px; */
+    color: #333;
+    
+   
+   
+}
+.search-btn li {
+    display: inline;
+}
+.search-btn li a {
+    font-size: 12px;
+    padding-top: 10px;
+    color: #333;
+    padding-right: 10px;
+    cursor: pointer;
+
+}
+
+.shopcar {
+    position: relative;
+    width: 3%;
+}
+
+.shopcar a::after {
+    content: '\e92a';
+    font-family: 'icomoon';
+    font-size: 20px;
+    line-height: 30px;
+
+}
+
+.count {
+    position: absolute;
+    display: inline-block;
+    top: -5px;
+    left: 17px;
+    height: 18px;
+    background-color: #ff0f23;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 18px;
+    color: #fff;
+    text-align: center;
+}
+
+/* < !-- 头部模块 end --> */
+
+
+.footer {
+    margin-top: 100px;
+    height: 240px;
+    background-color: #b3a7a7;
+}
+
+.mod_service {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-bottom: 1px solid #060303;
+}
+
+.mod_service .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+.mod_service .item h5 {
+  
+    width: 30px;
+    height: 30px;
+    background-color: #f7f1f1;
+    border-radius: 50%;
+    border: 1px solid #c50f0f;
+    font-size: 12px;
+    line-height: 30px;
+    color: #c50f0f;
+    text-align: center;
+    border-right: 1px solid #f7f7f7;
+    
+}
+.mod_service_text {
+    margin-left: 10px;
+}
+.npm p {
+    font-size: 12px;
+    line-height: 30px;
+    color: #333;
+}
+
+.npm {
+    padding-top: 10px;
+    width: 200px;
+    margin: 0 auto;
+}

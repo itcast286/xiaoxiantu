@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="../css/froms.css" />
+  </head>
+
+  <body>
+    <div class="w">
+      <div class="box-md">
+        <h3>新增学员</h3>
+        <form action="" autocomplete="off" method="post" class="info-form">
+          <label for="name">姓名：</label>
+          <input type="text" id="name" name="name" />
+
+          <label for="age">年龄：</label>
+          <input type="text" id="age" name="age" />
+
+          <label for="sex">性别：</label>
+          <select name="sex" id="sex">
+            <option value="男">男</option>
+            <option value="女">女</option>
+          </select>
+          &nbsp;&nbsp;&nbsp;&nbsp;<label for="salary">薪资：</label>
+          <input type="text" id="salary" name="salary" />
+
+          &nbsp;&nbsp;&nbsp;&nbsp;<label for="city">城市：</label>
+          <select name="city" id="city">
+            <option value="北京">北京</option>
+            <option value="上海">上海</option>
+            <option value="广州">广州</option>
+            <option value="深圳">深圳</option>
+            <option value="成都">成都</option>
+          </select>
+
+          &nbsp;&nbsp;&nbsp;&nbsp;<input
+            type="submit"
+            value="录入"
+            id="submit"
+          />
+        </form>
+      </div>
+
+      <div class="box-hd">
+        <h3>就业榜</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>学号</th>
+              <th>姓名</th>
+              <th>年龄</th>
+              <th>性别</th>
+              <th>薪资</th>
+              <th>就业城市</th>
+              <th>录入时间</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ref w"></div>
+    <script>
+      // 1. 获取表单元素
+      const nameInput = document.querySelector("#name");
+      const ageInput = document.querySelector("#age");
+      const sexSelect = document.querySelector("#sex");
+      const salaryInput = document.querySelector("#salary");
+      const citySelect = document.querySelector("#city");
+      const tableBody = document.querySelector("tbody");
+      //监听表单提交事件
+      const infoForm = document.querySelector(".info-form");
+      // 从本地存储初始化数据
+      let arr = JSON.parse(localStorage.getItem("arr")) || [];
+      // 校验表单
+      function validateForm() {
+        // 获取各字段值并去除首尾空格
+        const nameVal = nameInput.value.trim();
+        const ageVal = ageInput.value.trim();
+        const salaryVal = salaryInput.value.trim();
+        const sexVal = sexSelect.value;
+        const cityVal = citySelect.value;
+
+        if (!nameVal) {
+          alert("❌ 姓名不能为空");
+          nameInput.focus();
+          return;
+        }
+        if (nameVal.length < 2 || nameVal.length > 10) {
+          alert("❌ 姓名长度必须在2-10位之间");
+          nameInput.focus();
+          return;
+        }
+        const nameReg = /^[\u4e00-\u9fa5a-zA-Z0-9]+$/;
+        if (!nameReg.test(nameVal)) {
+          alert("❌ 姓名只能包含中文、字母或数字，不能有特殊符号");
+          nameInput.focus();
+          return;
+        }
+
+        // ✅ 新增：姓名重复校验
+        const isNameDuplicate = arr.some((item) => item.name === nameVal);
+        if (isNameDuplicate) {
+          alert("❌ 姓名「" + nameVal + "」已存在，不能重复录入");
+          nameInput.focus(); // 聚焦到姓名输入框，方便修改
+          return;
+        }
+
+        // 2. 年龄校验：非空 + 必须是数字 + 范围16-60岁
+        if (!ageVal) {
+          alert("❌ 年龄不能为空");
+          ageInput.focus();
+          return;
+        }
+        const age = Number(ageVal);
+        if (isNaN(age)) {
+          alert("❌ 年龄必须是数字（如：22）");
+          ageInput.focus();
+          return;
+        }
+        if (age < 16 || age > 60) {
+          alert("❌ 年龄必须在16-60岁之间");
+          ageInput.focus();
+          return;
+        }
+
+        // 3. 薪资校验：非空 + 必须是数字 + 大于0 + 最多保留两位小数
+        if (!salaryVal) {
+          alert("❌ 薪资不能为空");
+          salaryInput.focus();
+          return;
+        }
+        const salary = Number(salaryVal);
+        if (isNaN(salary)) {
+          alert("❌ 薪资必须是数字（如：8000 或 8000.50）");
+          salaryInput.focus();
+          return;
+        }
+        if (salary <= 0) {
+          alert("❌ 薪资必须大于0");
+          salaryInput.focus();
+          return;
+        }
+        const salaryReg = /^\d+(\.\d{1,2})?$/; // 正则：整数或最多两位小数
+        if (!salaryReg.test(salaryVal)) {
+          alert("❌ 薪资格式不正确，最多保留两位小数");
+          salaryInput.focus();
+          return;
+        }
+
+        // 4. 性别/城市校验（下拉框默认有值，可补充非空校验）
+        if (!sexVal || !cityVal) {
+          alert("❌ 请选择性别和就业城市");
+          return;
+        }
+
+ 
+        const obj = {
+          stuId: arr.length + 1,
+          name: nameVal,
+          age: parseInt(ageVal),
+          sex: sexVal,
+          salary: parseFloat(salaryVal),
+          city: cityVal,
+          time: new Date().toLocaleString(),
+        };
+        arr.push(obj);
+        infoForm.reset();
+
+        // 同步到本地存储
+        localStorage.setItem("arr", JSON.stringify(arr));
+      }
+      
+      // 提交表单
+      function handleSubmit() {
+        infoForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          validateForm();
+          // 清空表单
+          render();
+          renderChart();
+          
+        });
+      }
+
+      // 渲染表格
+      function render() {
+        tableBody.innerHTML = "";
+        for (let i = 0; i < arr.length; i++) {
+          let tr = document.createElement("tr");
+          tr.innerHTML = `
+                <td>${arr[i].stuId}</td>
+                <td>${arr[i].name}</td>
+                <td>${arr[i].age}</td>
+                <td>${arr[i].sex}</td>
+                <td>${arr[i].salary}</td>
+                <td>${arr[i].city}</td>
+                <td>${arr[i].time}</td>
+                <td><button data-id="${i}">删除</button></td>
+            `;
+          tableBody.appendChild(tr);
+        }
+        renderChart();
+      }
+
+      // 渲染图表
+      function renderChart() {
+        // 图表渲染逻辑
+        let chartDom = document.querySelector(".ref");
+        let myChart = echarts.init(chartDom);
+
+        option = {
+          title: {
+            text: "Temperature Change in the Coming Week",
+          },
+          tooltip: {
+            trigger: "axis",
+          },
+          legend: {},
+          toolbox: {
+            show: true,
+            feature: {
+              magicType: { type: ["line", "bar"] },
+              saveAsImage: {},
+            },
+          },
+          xAxis: {
+            type: "category",
+            data: arr.map((item) => item.name),
+          },
+          yAxis: {
+            type: "value",
+          },
+          series: [
+            {
+              name: "Highest",
+              type: "bar",
+              data: arr.map((item) => item.salary),
+            },
+          ],
+        };
+
+        myChart.setOption(option);
+      }
+
+      // 删除功能
+      function deleteRow() {
+        tableBody.addEventListener("click", function (e) {
+          if (e.target.tagName === "BUTTON") {
+            const id = e.target.dataset.id;
+            arr.splice(id, 1);
+            localStorage.setItem("arr", JSON.stringify(arr));
+            render();
+            renderChart();
+          }
+        });
+      }
+
+      // 页面加载时自动渲染
+      document.addEventListener("DOMContentLoaded", function () {
+        render();
+        deleteRow();
+        renderChart();
+        handleSubmit();
+      });
+    </script>
+  </body>
+</html>
